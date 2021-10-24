@@ -35,7 +35,7 @@ const GithubState = props => {
     setLoading(true);
 
     let search = await fetch(`https://api.github.com/search/users?q=${text}&client_id=
-        ${githubClientSecret}&client_secret=${githubClientSecret}`)
+        ${githubClientId}&client_secret=${githubClientSecret}`)
       .then(resp => resp.json());
 
     dispatch({
@@ -51,7 +51,7 @@ const GithubState = props => {
     setLoading();
 
     let user = await fetch(`https://api.github.com/users/${username}?client_id=
-        ${githubClientSecret}&client_secret=${githubClientSecret}`)
+        ${githubClientId}&client_secret=${githubClientSecret}`)
       .then(resp => resp.json());
 
     dispatch({
@@ -65,7 +65,7 @@ const GithubState = props => {
     setLoading();
 
     let repos = await fetch(`https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=
-        ${githubClientSecret}&client_secret=${githubClientSecret}`)
+        ${githubClientId}&client_secret=${githubClientSecret}`)
       .then(resp => resp.json());
 
     dispatch({
